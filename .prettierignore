@@ -1,0 +1,14 @@
+# Ignore artifacts:
+build
+coverage
+node_modules
+.env
+.env.local
+# Ignore logs:
+logs
+# Ignore dependencies:
+package-lock.json
+# Ignore IDE files:
+.vscode
+# Ignore OS files:
+.DS_Store
