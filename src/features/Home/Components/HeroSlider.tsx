@@ -29,8 +29,7 @@ const HeroSlider = () => {
         start: "top 110%",
         end: 'bottom 0%',
         scrub: true,
-        markers: true,
-        // pin: false, // optional: not pinning here
+        // markers: true,
       },
     });
   }, []);
