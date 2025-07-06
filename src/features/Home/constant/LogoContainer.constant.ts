@@ -1,6 +1,6 @@
-import { LogoContainer_Image_Type } from "../type/LogoContainer.type";
+import { LogoContainer_Image_Type } from '../type/LogoContainer.type';
 
-let LogoContainer_Array: LogoContainer_Image_Type[] = [
+const LogoContainer_Array: LogoContainer_Image_Type[] = [
   {
     src: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd1csarkz8obe9u.cloudfront.net%2Fposterpreviews%2Fhero-bike-logo-design-template-18e508b6b90e86648092b1fe8e19faf4_screen.jpg%3Fts%3D1708138826&f=1&nofb=1&ipt=8e25bc5ee7d7dda63435612864a735cdfe3d2b110e40a6c9d2b9c78b931987d8',
     alt: 'Hero MotoCorp Logo',
@@ -74,10 +74,6 @@ let LogoContainer_Array: LogoContainer_Image_Type[] = [
     width: 200,
     height: 100,
   },
-
-
-  
 ];
-
 
 export { LogoContainer_Array };
