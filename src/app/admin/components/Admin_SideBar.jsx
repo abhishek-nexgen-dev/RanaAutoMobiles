@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   Sidebar,
   SidebarContent,
@@ -11,7 +11,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from "@/components/ui/sidebar"
+} from '@/components/ui/sidebar';
 
 const items = [
   {
@@ -59,13 +59,18 @@ const Admin_SideBar = () => {
         </SidebarHeader>
         <SidebarContent className="flex-1">
           <SidebarGroup>
-            <SidebarGroupLabel className="text-lg text-amber-400 mt-4 mb-2 px-4">Navigation</SidebarGroupLabel>
+            <SidebarGroupLabel className="text-lg text-amber-400 mt-4 mb-2 px-4">
+              Navigation
+            </SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {items.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
-                      <a href={item.url} className="flex items-center gap-3 px-4 py-2 rounded hover:bg-amber-400 hover:text-black transition-colors">
+                      <a
+                        href={item.url}
+                        className="flex items-center gap-3 px-4 py-2 rounded hover:bg-amber-400 hover:text-black transition-colors"
+                      >
                         <item.icon />
                         <span>{item.title}</span>
                       </a>
@@ -81,7 +86,7 @@ const Admin_SideBar = () => {
         </SidebarFooter>
       </Sidebar>
     </SidebarProvider>
-  )
-}
+  );
+};
 
-export default Admin_SideBar
+export default Admin_SideBar;

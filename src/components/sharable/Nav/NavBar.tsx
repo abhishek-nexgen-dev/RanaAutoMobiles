@@ -12,10 +12,8 @@ import { TiThMenu } from 'react-icons/ti';
 //   SidebarProvider,
 // } from "@/components/ui/sidebar"
 
-
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-
 
 const NavBar = () => {
   // const items = [
@@ -57,7 +55,7 @@ const NavBar = () => {
             Suraj <br /> Automobiles
           </div>
           <div className="Menu  w-1/6 h-full flex items-center justify-center text-[2.8vw] font-bold">
-            <TiThMenu className='text-3xl'/>
+            <TiThMenu className="text-3xl" />
           </div>
         </div>
 
