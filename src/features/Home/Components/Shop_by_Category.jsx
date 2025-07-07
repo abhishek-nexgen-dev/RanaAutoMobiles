@@ -17,8 +17,8 @@ export const Shop_by_Category = () => {
 
       scrollTrigger: {
         trigger: ShopByCategory_Ref.current,
-        start: 'top 99%',
-        end: 'bottom 0%',
+        start: 'top 120%',
+        end: 'top -15%',
         scrub: true,
         markers: true,
 
@@ -30,6 +30,10 @@ export const Shop_by_Category = () => {
 
   return (
     <div className='w-screen h-screen bg-black' ref={ShopByCategory_Ref}>
+
+
+
+
 
     </div>
   )
