@@ -1,4 +1,4 @@
-import { LoginForm } from '@/features/Auth/components/LoginForm';
+import { LoginForm } from '@/features/Auth/v1/components/LoginForm';
 import React from 'react';
 
 const page = () => {

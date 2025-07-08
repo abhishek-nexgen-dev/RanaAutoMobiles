@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import {ShopByCategoryData} from '../index'
 gsap.registerPlugin(ScrollTrigger);
 
 export const Shop_by_Category = () => {
@@ -47,7 +48,34 @@ export const Shop_by_Category = () => {
         </div>
       </div>
 
-      <div className="Shop_By_Category_part2 w-full h-screen flex flex-col  items-start p-[4vw] bg-blue-300 text-black"></div>
+      <div className="Shop_By_Category_part2 w-full  flex   items-start justify-between flex-wrap p-[4vw]  text-black">
+             {
+
+              ShopByCategoryData.map((item, index) => (
+            
+              <>
+              {console.log(item)}
+              <div
+                  key={index}
+                  className="Category_Item w-[45vw]  gap-[2vw] h-[80vh] flex items-center justify-start mb-4 "
+                >
+                 <div className="w-full h-full flex  flex-col items-start justify-center relative rounded-md">
+
+                 <img
+                    src={item.imageUrl}
+                    alt={item.title}
+                    className="w-full h-full object-cover mr-4 absolute z-10 rounded-md"
+                  />
+                  <h2 className="text-[2.5vw] font-bold absolute z-20 text-white">{item.title}</h2>
+                 </div>
+                </div>
+              
+              </>
+              ))
+             }
+    
+
+      </div>
     </div>
   );
 };

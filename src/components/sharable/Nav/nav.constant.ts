@@ -1,18 +1,19 @@
-import { NavLink } from '@/types/nav.type';
+import { NavType } from "@/types/nav.type";
 
-export const NAV_LINKS: NavLink[] = [
+
+
+
+export const NAV_LINKS: NavType[] = [
   { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
+  { label: 'About', href: '#' },
   { label: 'Contact', href: '/contact' },
   {
     label: 'Category',
     href: '#',
     SUBMENU: [
-      { label: 'Subcategory 1', href: '/subcategory1' },
-      { label: 'Subcategory 2', href: '/subcategory2' },
+      { label: 'Subcategory 1', href: '#' },
+      { label: 'Subcategory 2', href: '#' },
     ],
   },
-  { label: 'Login', href: '/login' },
-  { label: 'Signup', href: '/signup' },
-  { label: 'Dashboard', href: '/dashboard', protected: true },
+
 ];

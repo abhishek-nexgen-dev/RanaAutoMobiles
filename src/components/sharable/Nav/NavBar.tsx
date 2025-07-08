@@ -14,6 +14,7 @@ import { TiThMenu } from 'react-icons/ti';
 
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { NAV_LINKS } from './nav.constant';
 
 const NavBar = () => {
   // const items = [
@@ -99,9 +100,16 @@ const NavBar = () => {
           className="flex gap-3 
       "
         >
-          <Link href="/">Home</Link>
-          <li> About</li>
-          <li> Product</li>
+          {
+            NAV_LINKS.map((item, index) => (
+              <li
+                key={index}
+                className="text-[1.5vw] lg:text-[0.8vw] font-semibold text-[#d1d5db] hover:text-[#10b981] cursor-pointer"
+              >
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))
+          }
         </ol>
       </div>
 

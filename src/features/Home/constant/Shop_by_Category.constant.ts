@@ -45,7 +45,7 @@ export const ShopByCategoryData: ShopByCategoryType[] = [
     title: 'Tyres & Wheels',
     description: 'Durable tyres and stylish wheels for every terrain.',
     imageUrl:
-      'https://images.unsplash.com/photo-1468449032589-876ed4b3eefe?auto=format&fit=crop&w=400&q=80',
+      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.freepik.com%2Fpremium-photo%2Fcar-tire-background-tyre-texture-closeup-background_49507-3426.jpg%3Fw%3D2000&f=1&nofb=1&ipt=334593019376f20c44838588db145a2a58dbd028b6a0652529be3770af45b19b',
     link: '/shop/tyres-wheels',
   },
 ];
