@@ -1,3 +1,7 @@
+
+'use client';
+
+
 import NavBar from "@/components/sharable/Nav/NavBar";
 
 // src/app/login/layout.tsx

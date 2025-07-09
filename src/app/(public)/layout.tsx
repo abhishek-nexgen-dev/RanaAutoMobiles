@@ -1,3 +1,6 @@
+
+'use client';
+
 import NavBar from '@/components/sharable/Nav/NavBar'
 import React from 'react'
 

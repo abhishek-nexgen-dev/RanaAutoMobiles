@@ -1,3 +1,6 @@
+
+'use client';
+
 import { SidebarProvider} from "@/components/ui/sidebar"
 import Admin_SideBar from "./components/Admin_SideBar";
 import Admin_NavBar from "./components/Admin_NavBar";
