@@ -25,9 +25,9 @@ export function LoginForm() {
   };
 
   return (
-    <div className="Login_Form w-full h-[80vh] flex flex-col md:flex-row bg-black text-white ">
+    <div className="Login_Form w-full h-[80vh] flex flex-col md:flex-row bg-black text-white border-[#393939]">
     {/* Left: Shop Info */}
-    <div className="Left_Container md:w-1/2 w-full h-full flex flex-col justify-center p-10 md:p-16 bg-gradient-to-br from-[#121212] to-[#1f1f1f]">
+    <div className="Left_Container md:w-1/2 w-full h-full flex flex-col justify-center p-10 md:p-16 bg-gradient-to-br from-[#121212] to-[#1f1f1f] rounded-bl-md rounded-tl-md">
       <h1 className="text-4xl md:text-5xl font-bold text-[#08ee7b] mb-4">
         Suraj Automobiles
       </h1>
@@ -51,7 +51,7 @@ export function LoginForm() {
     </div>
   
     {/* Right: Login Form */}
-    <div className="Right_Container md:w-1/2 w-full h-full bg-[#1a1a1a] p-8 md:p-16 flex items-center rounded-tl-md rounded-tl-md">
+    <div className="Right_Container md:w-1/2 w-full h-full bg-[#1a1a1a] p-8 md:p-16 flex items-center rounded-br-md rounded-tr-md">
       <div className="w-full max-w-md mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-[#08ee7b] mb-2">
           Login to Your Account
@@ -68,12 +68,12 @@ export function LoginForm() {
             <Input
               id="email"
               type="email"
-              {...register("email")}
+              {...register("Email")}
               className="bg-[#2a2a2a] text-white w-full h-12 px-4 rounded-md border border-transparent focus:border-[#08ee7b] focus:outline-none"
               placeholder="yourEmail@example.com"
             />
-            {errors.email && (
-              <span className="text-red-500 text-xs">{errors.email.message}</span>
+            {errors.Email && (
+              <span className="text-red-500 text-xs">{errors.Email.message}</span>
             )}
           </div>
   
@@ -84,12 +84,12 @@ export function LoginForm() {
             <Input
               id="password"
               type="password"
-              {...register("password")}
+              {...register("Password")}
               className="bg-[#2a2a2a] text-white w-full h-12 px-4 rounded-md border border-transparent focus:border-[#08ee7b] focus:outline-none"
-              placeholder="Enter your password"
+              placeholder="Enter your Password"
             />
-            {errors.password && (
-              <span className="text-red-500 text-xs">{errors.password.message}</span>
+            {errors.Password && (
+              <span className="text-red-500 text-xs">{errors.Password.message}</span>
             )}
           </div>
   
