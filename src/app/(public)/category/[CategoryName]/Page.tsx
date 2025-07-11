@@ -1,7 +1,6 @@
 'use client';
 
-import { useParams } from "next/navigation";
-
+import { useParams } from 'next/navigation';
 
 const Page = () => {
   const params = useParams<{ CategoryName: string }>();

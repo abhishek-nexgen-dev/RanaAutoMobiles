@@ -34,7 +34,7 @@ const contacts = [
   },
 ];
 
-const Page = () => {
+const page = () => {
   return (
     <div className="Contact_Form_Container bg-black w-screen lg:w-[84vw] min-h-screen text-white flex items-start justify-center p-[3vw]">
       <div className="w-full md:w-[80%] mt-[2vh]">
@@ -92,4 +92,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default page;

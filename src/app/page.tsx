@@ -13,20 +13,19 @@ const Page = () => {
 
   useEffect(() => {
     if (lenis.current) lenis.current.scrollTo(0, { immediate: true });
-  }, [pathname, searchParams, lenis]);
+  }, [pathname, searchParams]);
 
   useLayoutEffect(() => {
     lenis.current = new Lenis({
       smoothWheel: true,
-      // Customize other instance settings here
     });
 
     const resize = setInterval(() => {
-      lenis.current!.resize();
+      lenis.current?.resize();
     }, 150);
 
     function onFrame(time: number) {
-      lenis.current!.raf(time);
+      lenis.current?.raf(time);
     }
 
     const unsubscribe = Tempus.add(onFrame);
@@ -34,7 +33,7 @@ const Page = () => {
     return () => {
       unsubscribe();
       clearInterval(resize);
-      lenis.current!.destroy();
+      lenis.current?.destroy();
       lenis.current = null;
     };
   }, []);
