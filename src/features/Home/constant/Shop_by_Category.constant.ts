@@ -1,10 +1,3 @@
-import { ShopByCategoryType } from '../type/Shop_by_Category..type';
-
-// Shop by Category”
-
-// Paragraph:
-// Easily find what you're looking for by choosing from our well-organized categories. From engine parts to oils and accessories – everything is just one click away! Save time and effort by browsing through clean, clearly labeled product types so you can focus on getting what matters most.
-
 export const categories = [
   {
     id: '1',

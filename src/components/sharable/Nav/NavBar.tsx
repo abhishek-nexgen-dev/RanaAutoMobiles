@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaShoppingCart, FaUser, FaSearch } from 'react-icons/fa';
 import { TiThMenu } from 'react-icons/ti';
 import Link from 'next/link';
@@ -7,10 +7,19 @@ import { NAV_LINKS } from './nav.constant';
 import { Button } from '@/components/ui/button';
 
 const NavBar = () => {
-  const [isLogin, setIsLogin] = React.useState(false);
+  const [isLogin, setIsLogin] = React.useState(true);
+
+  const token = localStorage.getItem('token');
+
+  useEffect(() => {
+    if (!token) {
+      setIsLogin(false);
+    }
+    setIsLogin(true);
+  }, [token]);
 
   return (
-    <div className="Navbar_Component w-screen flex items-center justify-between bg-black text-white lg:h-[12vh] z-[200] fixed lg:relative px-6 lg:px-12 py-4 shadow-md">
+    <div className="Navbar_Component fixed  w-screen flex items-center justify-between top-0 bg-black text-white lg:h-[12vh] z-[200] lg:relative px-6 lg:px-12 py-4 shadow-md border-b border-gray-800">
       {/* Logo Section */}
       <div className="Logo_Container flex items-center gap-2">
         <h1 className="text-[1.5vw] lg:text-[1.2vw] font-extrabold tracking-tight text-[#08ee7b]">
@@ -38,7 +47,7 @@ const NavBar = () => {
       {/* Search and Icons */}
       <div className="Right_Container flex items-center gap-6">
         {/* Search Container */}
-        <div className="Search_Container flex items-center bg-[#242424] rounded-md px-3 py-2">
+        <div className="Search_Container  hidden lg:flex items-center bg-[#242424] rounded-md px-3 py-2">
           <FaSearch className="text-gray-400 text-lg mr-2" />
           <input
             type="text"
@@ -48,7 +57,7 @@ const NavBar = () => {
         </div>
 
         {/* Icons */}
-        <div className="Icon_Container flex items-center gap-4 text-amber-300">
+        <div className="Icon_Container hidden lg:flex items-center gap-4 text-[#08EE7B]">
           {isLogin ? (
             <>
               <Link href="/cart">
