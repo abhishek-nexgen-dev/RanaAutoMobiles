@@ -4,4 +4,3 @@ export interface ContactFormInputs {
   Phone: string;
   Message: string;
 }
-

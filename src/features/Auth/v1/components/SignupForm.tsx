@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { SignUpFormInputs } from '../type/SignUp.type';
 import { SignUpSchema } from '../validator/Auth.validator';
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler } from 'react-hook-form';
 
 export function SignUpForm() {
   const {
@@ -19,7 +19,7 @@ export function SignUpForm() {
   });
 
   const onSubmit: SubmitHandler<SignUpFormInputs> = (data) => {
-    alert("Sign Up Successful");
+    alert('Sign Up Successful');
     console.log(data);
     reset();
   };
@@ -32,7 +32,8 @@ export function SignUpForm() {
           Suraj Automobiles
         </h1>
         <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-          Your one-stop shop for all automobile needs — from engine parts to accessories, we’ve got you covered.
+          Your one-stop shop for all automobile needs — from engine parts to
+          accessories, we’ve got you covered.
         </p>
         <div className="Shop_Details text-gray-300 space-y-3 text-base">
           <p>
@@ -60,68 +61,91 @@ export function SignUpForm() {
             Sign up to manage your orders, track services, and more.
           </p>
 
-          <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
+          <form
+            className="flex flex-col gap-5"
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <div>
-              <Label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
+              <Label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-300 mb-1"
+              >
                 Name
               </Label>
               <Input
                 id="name"
                 type="text"
-                {...register("Name")}
+                {...register('Name')}
                 className="bg-[#2a2a2a] text-white w-full h-12 px-4 rounded-md border border-transparent focus:border-[#08ee7b] focus:outline-none"
                 placeholder="Your Name"
               />
               {errors.Name && (
-                <span className="text-red-500 text-xs">{errors.Name.message}</span>
+                <span className="text-red-500 text-xs">
+                  {errors.Name.message}
+                </span>
               )}
             </div>
 
             <div>
-              <Label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+              <Label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-300 mb-1"
+              >
                 Email
               </Label>
               <Input
                 id="email"
                 type="email"
-                {...register("Email")}
+                {...register('Email')}
                 className="bg-[#2a2a2a] text-white w-full h-12 px-4 rounded-md border border-transparent focus:border-[#08ee7b] focus:outline-none"
                 placeholder="yourEmail@example.com"
               />
               {errors.Email && (
-                <span className="text-red-500 text-xs">{errors.Email.message}</span>
+                <span className="text-red-500 text-xs">
+                  {errors.Email.message}
+                </span>
               )}
             </div>
 
             <div>
-              <Label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-1">
+              <Label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-300 mb-1"
+              >
                 Password
               </Label>
               <Input
                 id="password"
                 type="password"
-                {...register("Password")}
+                {...register('Password')}
                 className="bg-[#2a2a2a] text-white w-full h-12 px-4 rounded-md border border-transparent focus:border-[#08ee7b] focus:outline-none"
                 placeholder="Enter your password"
               />
               {errors.Password && (
-                <span className="text-red-500 text-xs">{errors.Password.message}</span>
+                <span className="text-red-500 text-xs">
+                  {errors.Password.message}
+                </span>
               )}
             </div>
 
             <div>
-              <Label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-300 mb-1">
+              <Label
+                htmlFor="confirmPassword"
+                className="block text-sm font-medium text-gray-300 mb-1"
+              >
                 Confirm Password
               </Label>
               <Input
                 id="confirmPassword"
                 type="password"
-                {...register("ConfirmPassword")}
+                {...register('ConfirmPassword')}
                 className="bg-[#2a2a2a] text-white w-full h-12 px-4 rounded-md border border-transparent focus:border-[#08ee7b] focus:outline-none"
                 placeholder="Confirm your password"
               />
               {errors.ConfirmPassword && (
-                <span className="text-red-500 text-xs">{errors.ConfirmPassword.message}</span>
+                <span className="text-red-500 text-xs">
+                  {errors.ConfirmPassword.message}
+                </span>
               )}
             </div>
 
@@ -134,7 +158,7 @@ export function SignUpForm() {
           </form>
 
           <p className="text-gray-400 text-sm mt-6 text-center">
-            Already have an account?{" "}
+            Already have an account?{' '}
             <Link href="/login" className="text-[#08ee7b] hover:underline">
               Login here
             </Link>

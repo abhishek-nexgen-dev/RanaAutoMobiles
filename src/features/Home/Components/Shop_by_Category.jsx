@@ -8,7 +8,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from '@/components/ui/card';
 
 export const Shop_by_Category = () => {
   const categories = [
@@ -60,9 +60,7 @@ export const Shop_by_Category = () => {
         'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.btbexhausts.co.uk%2Fimg%2Fslider%2Fslide-1-2.png&f=1&nofb=1&ipt=dd8fc373826fff4d6d31b6b45c20cb676a6f1cc3f78da242ed541897fd0c2e00',
       link: '/shop/exhaust',
     },
-   
   ];
-  
 
   return (
     <div className="Shop_By_Category w-screen bg-black flex flex-col">
@@ -88,7 +86,7 @@ export const Shop_by_Category = () => {
       <div className="w-full flex items-center justify-center">
         <div className="Caregory_CardContainer w-[90%] h-full rounded-2xl  shadow-[#08ee7b]/30 p-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map((category) => (
+            {categories.map((category) => (
               <Link key={category.id} href={category.link}>
                 <Card className="Category_Card bg-[#2A2A2A] rounded-lg p-4 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">
                   <CardHeader className="p-0">

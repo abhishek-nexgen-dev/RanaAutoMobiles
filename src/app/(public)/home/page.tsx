@@ -9,13 +9,11 @@ import {
 import NavBar from '@/components/sharable/Nav/NavBar';
 
 const page = () => {
-  
-
   return (
     <div className="w-screen flex flex-col h-fit">
       <NavBar />
       <HeroSlider />
-       <LogoContainer />
+      <LogoContainer />
       <AboutSec />
       <Shop_by_Category />
     </div>

@@ -1,8 +1,6 @@
-
 'use client';
 
-
-import NavBar from "@/components/sharable/Nav/NavBar";
+import NavBar from '@/components/sharable/Nav/NavBar';
 
 // src/app/login/layout.tsx
 export default function AuthLayout({
@@ -10,8 +8,10 @@ export default function AuthLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>
-  <NavBar />
-  {children}
-  </>;
+  return (
+    <>
+      <NavBar />
+      {children}
+    </>
+  );
 }

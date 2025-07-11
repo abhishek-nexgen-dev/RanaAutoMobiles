@@ -1,7 +1,4 @@
-import { NavType } from "@/types/nav.type";
-
-
-
+import { NavType } from '@/types/nav.type';
 
 export const NAV_LINKS: NavType[] = [
   { label: 'Home', href: '/' },
@@ -15,5 +12,4 @@ export const NAV_LINKS: NavType[] = [
       { label: 'Subcategory 2', href: '#' },
     ],
   },
-
 ];

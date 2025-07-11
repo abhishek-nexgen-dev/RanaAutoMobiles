@@ -5,9 +5,7 @@ import React from 'react';
 const page = () => {
   return (
     <div className="flex w-screen  bg-black items-center justify-center p-[5vw]">
-        
-        <SignUpForm />  
-
+      <SignUpForm />
     </div>
   );
 };

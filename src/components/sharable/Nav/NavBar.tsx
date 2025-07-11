@@ -100,16 +100,14 @@ const NavBar = () => {
           className="flex gap-3 
       "
         >
-          {
-            NAV_LINKS.map((item, index) => (
-              <li
-                key={index}
-                className="text-[1.5vw] lg:text-[0.8vw] font-semibold text-[#d1d5db] hover:text-[#10b981] cursor-pointer"
-              >
-                <Link href={item.href}>{item.label}</Link>
-              </li>
-            ))
-          }
+          {NAV_LINKS.map((item, index) => (
+            <li
+              key={index}
+              className="text-[1.5vw] lg:text-[0.8vw] font-semibold text-[#d1d5db] hover:text-[#10b981] cursor-pointer"
+            >
+              <Link href={item.href}>{item.label}</Link>
+            </li>
+          ))}
         </ol>
       </div>
 

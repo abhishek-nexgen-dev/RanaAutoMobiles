@@ -28,7 +28,6 @@ const Admin_SideBar = () => {
       <SidebarProvider className=" !bg-[#2A2A2A]">
         <Sidebar className="!z-[300] min-h-screen w-[270px] !bg-[#2A2A2A] !text-white shadow-lg flex flex-col">
           <SidebarHeader className="!bg-[#2A2A2A] flex flex-col items-center justify-center py-8 border-b border-[#3A3A3A]">
-        
             {/* <img
               src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpng.pngtree.com%2Fpng-clipart%2F20230409%2Foriginal%2Fpngtree-admin-and-customer-service-job-vacancies-png-image_9041264.png&f=1&nofb=1&ipt=a5b06d2c076c117ffb4efc7da761ac086e44664dc252e11397c3f7256774019a"
               alt="Admin"
@@ -36,7 +35,8 @@ const Admin_SideBar = () => {
             {/* /> */}
             <h2 className="text-2xl font-bold text-amber-400">Admin Panel</h2>
             <p className="text-sm text-gray-400 text-center mt-1 px-2">
-              Manage your application, users, orders, and settings from one place.
+              Manage your application, users, orders, and settings from one
+              place.
             </p>
           </SidebarHeader>
 
@@ -64,7 +64,7 @@ const Admin_SideBar = () => {
               </SidebarGroupContent>
             </SidebarGroup>
           </SidebarContent>
-          
+
           <SidebarFooter className="!bg-[#2A2A2A] py-4 border-t border-[#3A3A3A] text-center text-xs text-gray-500">
             &copy; {new Date().getFullYear()} Suraj Admin Panel
           </SidebarFooter>

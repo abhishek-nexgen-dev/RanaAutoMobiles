@@ -2,13 +2,23 @@
 build
 coverage
 node_modules
+dist
+.vscode
+.DS_Store
 .env
 .env.local
-# Ignore logs:
-logs
-# Ignore dependencies:
+.env.development.local
+.env.test.local
+.env.production.local
 package-lock.json
-# Ignore IDE files:
-.vscode
-# Ignore OS files:
-.DS_Store
+yarn.lock
+pnpm-lock.yaml
+*.log
+package.json
+tsconfig.json
+tsconfig.build.json
+.next
+.next-cache
+out
+public
+*.swp

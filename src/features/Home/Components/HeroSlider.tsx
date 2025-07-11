@@ -10,9 +10,6 @@ const HeroSlider = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const videoContainerRef = useRef<HTMLDivElement>(null);
 
-
-
-
   useGSAP(() => {
     if (!titleRef.current || !videoRef.current || !videoContainerRef.current)
       return;
@@ -40,9 +37,6 @@ const HeroSlider = () => {
 
   return (
     <div className="bg-black text-white  relative">
-      
-
-  
       <div
         ref={titleRef}
         className="Title_Container py-[13vh] md:py-0 md:h-[60vh] w-full flex flex-col items-center justify-end opacity-0 gap-2"
@@ -68,14 +62,13 @@ const HeroSlider = () => {
         ref={videoContainerRef}
         className="Video_Container w-full  py-[5vh] md:py-0  md:h-screen flex items-center justify-center relative "
       >
-       
         <video
           ref={videoRef}
           src="/Video/HeroVideo.mp4"
           autoPlay
           loop
           muted
-          className="Hero_Video w-[20%] h-full bg-contain "
+          className="Hero_Video w-[20%] h-full bg-contain"
         />
       </div>
     </div>
