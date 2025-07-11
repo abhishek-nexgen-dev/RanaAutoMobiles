@@ -17,7 +17,7 @@ export const AboutSec = () => {
         </h1>
 
         <p className="parastoo text-center text-[1.3vw]">
-          Suraj Automobiles started in [Year] with a small setup and a big
+          Rana Auto Mobiles started in [Year] with a small setup and a big
           dream. Our founder believed that riders and mechanics deserved access
           to original spare parts without paying premium prices. We grew step by
           step, focusing on quality, honesty, and good service. Today, we are

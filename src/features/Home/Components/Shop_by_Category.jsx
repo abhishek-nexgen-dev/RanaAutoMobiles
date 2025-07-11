@@ -18,7 +18,7 @@ export const Shop_by_Category = () => {
       description: 'Batteries, bulbs, and wiring for all two-wheelers.',
       imageUrl:
         'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.gpwg.co.za%2Fwp-content%2Fuploads%2F2020%2F08%2FES.png&f=1&nofb=1&ipt=81ada337ad620e703ee953ea8df7d902c72367553ce15b6c8a3898d55facf96a',
-      link: '/shop/electricals',
+      link: '/electricals',
     },
     {
       id: '2',
@@ -30,7 +30,7 @@ export const Shop_by_Category = () => {
     },
     {
       id: '3',
-      title: 'Brakes & Suspension',
+      title: 'Brakes and Suspension',
       description: 'Reliable brakes and suspension parts for safe rides.',
       imageUrl:
         'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbobromano.com.au%2Fwp-content%2Fuploads%2F2018%2F09%2Fbrakes-suspension.png&f=1&nofb=1&ipt=402b22f5d8cce3f425cc426dc148601c733fec964d55d2f1d949c124466e79d4',
@@ -38,7 +38,7 @@ export const Shop_by_Category = () => {
     },
     {
       id: '4',
-      title: 'Tires & Wheels',
+      title: 'Tires and Wheels',
       description: 'Durable tires and stylish alloy wheels for smooth rides.',
       imageUrl:
         'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.tirerack.com%2Fcontent%2Fdam%2Ftirerack%2Fdesktop%2FOpen_Graph_Images%2Fog_TireWheelPkg.jpg&f=1&nofb=1&ipt=da3d4174e927a66d8396047a4e2e37c44ac81bfab69ebdbc6270337ee4d2e2a0',
@@ -46,7 +46,7 @@ export const Shop_by_Category = () => {
     },
     {
       id: '5',
-      title: 'Body & Frame',
+      title: 'Body and Frame',
       description: 'Frames, fuel tanks, side panels and other body parts.',
       imageUrl:
         'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fsuprememotos.com%2Fuploads%2Fpostfotos%2Fcafe-racer-custom-super-pocket-bike-125cc-race-wide-tires-honda-ct70-mini-bike-1.JPG&f=1&nofb=1&ipt=37132dc00f32f42d87ae51b2fcb57c5a119ef50af7a2d0531d2d7d8b9bc928ca',
@@ -87,7 +87,7 @@ export const Shop_by_Category = () => {
         <div className="Caregory_CardContainer w-[90%] h-full rounded-2xl  shadow-[#08ee7b]/30 p-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories.map((category) => (
-              <Link key={category.id} href={category.link}>
+              <Link key={category.id} href={`/category/${category.title}`}>
                 <Card className="Category_Card bg-[#2A2A2A] rounded-lg p-4 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">
                   <CardHeader className="p-0">
                     <img

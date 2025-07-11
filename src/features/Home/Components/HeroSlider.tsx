@@ -47,7 +47,7 @@ const HeroSlider = () => {
             Affordable
           </h1>
           <p className="text-center text-[#d1d5db] text-[1.8vw]mt-4 lg:text-[1.5vw] parastoo">
-            Welcome to Suraj Automobiles – your trusted shop for all bike and
+            Welcome to Rana Auto Mobiles – your trusted shop for all bike and
             scooty spare parts. We sell original parts at wholesale prices,
             provide quick and expert servicing, and help you keep your
             two-wheeler in top condition. Whether you&apos;re a mechanic or a

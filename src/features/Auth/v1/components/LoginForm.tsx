@@ -29,7 +29,7 @@ export function LoginForm() {
       {/* Left: Shop Info */}
       <div className="Left_Container md:w-1/2 w-full h-full flex flex-col justify-center p-10 md:p-16 bg-gradient-to-br from-[#121212] to-[#1f1f1f] rounded-bl-md rounded-tl-md">
         <h1 className="text-4xl md:text-5xl font-bold text-[#08ee7b] mb-4">
-          Suraj Automobiles
+          Rana Auto Mobiles
         </h1>
         <p className="text-gray-400 text-lg mb-8 leading-relaxed">
           Your one-stop shop for all automobile needs — from engine parts to
@@ -37,16 +37,20 @@ export function LoginForm() {
         </p>
         <div className="Shop_Details text-gray-300 space-y-3 text-base">
           <p>
-            <strong>Address:</strong> 123 Main Street, City, Country
+            <strong className="mr-[0.5vw]">Address:-</strong> Bagodar Near
+            Saibaba Mandir (GIRIDIH)JHR
           </p>
           <p>
-            <strong>Phone:</strong> +91 9876543210
+            <strong className="mr-[0.5vw]"> Phone:- </strong> +91 9801956844 ,
+            6203083782
           </p>
           <p>
-            <strong>Email:</strong> support@surajautomobiles.com
+            <strong className="mr-[0.5vw]"> Email:- </strong>{' '}
+            support@surajautomobiles.com
           </p>
           <p>
-            <strong>Working Hours:</strong> Mon - Sat: 9:00 AM - 6:00 PM
+            <strong className="mr-[0.5vw]">Working Hours:- </strong> Mon - Sat:
+            9:00 AM - 6:00 PM
           </p>
         </div>
       </div>

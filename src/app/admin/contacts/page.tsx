@@ -15,7 +15,7 @@ const contacts = [
     id: 1,
     name: 'Amit Sharma',
     email: 'amit.sharma@email.com',
-    phone: '+91 9876543210',
+    phone: '+91 9801956844 ,       6203083782',
     date: '2025-07-08',
   },
   {
