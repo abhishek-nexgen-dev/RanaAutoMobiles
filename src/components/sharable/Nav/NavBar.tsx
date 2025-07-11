@@ -1,109 +1,33 @@
+'use client';
 import React from 'react';
+import { FaShoppingCart, FaUser, FaSearch } from 'react-icons/fa';
 import { TiThMenu } from 'react-icons/ti';
-// import {
-//   Sidebar,
-//   SidebarContent,
-//   SidebarGroup,
-//   SidebarGroupContent,
-//   SidebarGroupLabel,
-//   SidebarMenu,
-//   SidebarMenuButton,
-//   SidebarMenuItem,
-//   SidebarProvider,
-// } from "@/components/ui/sidebar"
-
-import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { NAV_LINKS } from './nav.constant';
+import { Button } from '@/components/ui/button';
 
 const NavBar = () => {
-  // const items = [
-  //   {
-  //     title: 'Home',
-  //     url: '#',
-  //     icon: () => <span>🏠</span>, // Placeholder icon
-  //   },
-  //   {
-  //     title: 'Inbox',
-  //     url: '#',
-  //     icon: () => <span>📥</span>, // Placeholder icon
-  //   },
-  //   {
-  //     title: 'Calendar',
-  //     url: '#',
-  //     icon: () => <span>📅</span>, // Placeholder icon
-  //   },
-  //   {
-  //     title: 'Search',
-  //     url: '#',
-  //     icon: () => <span>🔍</span>, // Placeholder icon
-  //   },
-  //   {
-  //     title: 'Settings',
-  //     url: '#',
-  //     icon: () => <span>⚙️</span>, // Placeholder icon
-  //   },
-  // ];
+  const [isLogin, setIsLogin] = React.useState(false);
 
   return (
-    <div
-      className="Navbar_Component  p-[2vh] w-screen flex items-center justify-center  bg-black
-    text-white lg:h-[12vh] z-[200] fixed lg:relative"
-    >
-      <div className="Mobile_Nav h-[10vh] w-full absolute top-0 z-[200] flex flex-col items-center justify-between lg:hidden ">
-        <div className="Mobile_Nav_Part1 w-full h-[15vh] bg-black text-white flex items-center justify-between ">
-          <div className="Logo w-1/6 h-full flex items-center justify-center text-[2.8vw] font-bold">
-            Suraj <br /> Automobiles
-          </div>
-          <div className="Menu  w-1/6 h-full flex items-center justify-center text-[2.8vw] font-bold">
-            <TiThMenu className="text-3xl" />
-          </div>
-        </div>
-
-        {/* <div className="Mobile_Nav_Part2 w-full h-[85vh] bg-black text-white flex items-center justify-center">
-   
-
-         <SidebarProvider className="w-full h-full bg-[#1a1a1a] text-red-700">
-
-
-         <Sidebar className='w-1/2 h-full block lg:hidden '>
-            <SidebarContent>
-              <SidebarGroup>
-                <SidebarGroupLabel>Application</SidebarGroupLabel>
-                <SidebarGroupContent>
-                  <SidebarMenu>
-                    {items.map((item) => (
-                      <SidebarMenuItem key={item.title}>
-                        <SidebarMenuButton asChild>
-                          <a href={item.url}>
-                            <item.icon />
-                            <span>{item.title}</span>
-                          </a>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                    ))}
-                  </SidebarMenu>
-                </SidebarGroupContent>
-              </SidebarGroup>
-            </SidebarContent>
-          </Sidebar>
-
-         </SidebarProvider>
-
-       
-        </div> */}
+    <div className="Navbar_Component w-screen flex items-center justify-between bg-black text-white lg:h-[12vh] z-[200] fixed lg:relative px-6 lg:px-12 py-4 shadow-md">
+      {/* Logo Section */}
+      <div className="Logo_Container flex items-center gap-2">
+        <h1 className="text-[1.5vw] lg:text-[1.2vw] font-extrabold tracking-tight text-[#08ee7b]">
+          RANA
+        </h1>
+        <h1 className="text-[1.5vw] lg:text-[1.2vw] font-extrabold tracking-tight text-[#08ee7b]">
+          AUTO MOBILES
+        </h1>
       </div>
 
-      <div className="Part-1 Logo_container w-[10%] h-full"></div>
-      <div className="Part-2 w-[70%] h-full hidden lg:flex items-center justify-center">
-        <ol
-          className="flex gap-3 
-      "
-        >
+      {/* Navigation Links */}
+      <div className="Nav_Links hidden lg:flex items-center gap-6">
+        <ol className="flex gap-6">
           {NAV_LINKS.map((item, index) => (
             <li
               key={index}
-              className="text-[1.5vw] lg:text-[0.8vw] font-semibold text-[#d1d5db] hover:text-[#10b981] cursor-pointer"
+              className="text-[1.2vw] lg:text-[0.9vw] font-semibold text-[#d1d5db] hover:text-[#10b981] cursor-pointer"
             >
               <Link href={item.href}>{item.label}</Link>
             </li>
@@ -111,12 +35,42 @@ const NavBar = () => {
         </ol>
       </div>
 
-      <div className="Part-3 items-center justify-end w-[10%] h-full  hidden lg:flex">
-        <Link href="/login">
-          <Button className="bg-[#242424] text-[1vw] w-[12vw] h-[80%] font-extrabold cursor-pointer">
-            Login
-          </Button>
-        </Link>
+      {/* Search and Icons */}
+      <div className="Right_Container flex items-center gap-6">
+        {/* Search Container */}
+        <div className="Search_Container flex items-center bg-[#242424] rounded-md px-3 py-2">
+          <FaSearch className="text-gray-400 text-lg mr-2" />
+          <input
+            type="text"
+            placeholder="Search products..."
+            className="bg-transparent text-white placeholder-gray-400 outline-none text-sm lg:text-base"
+          />
+        </div>
+
+        {/* Icons */}
+        <div className="Icon_Container flex items-center gap-4 text-amber-300">
+          {isLogin ? (
+            <>
+              <Link href="/cart">
+                <FaShoppingCart className="text-[1.5vw] lg:text-[1.2vw] cursor-pointer" />
+              </Link>
+              <Link href="/profile">
+                <FaUser className="text-[1.5vw] lg:text-[1.2vw] cursor-pointer" />
+              </Link>
+            </>
+          ) : (
+            <Link href="/login">
+              <Button className="bg-[#08ee7b] text-black text-sm lg:text-base px-4 py-2 rounded-md font-bold hover:bg-[#06c96b]">
+                Login
+              </Button>
+            </Link>
+          )}
+        </div>
+
+        {/* Mobile Menu Icon */}
+        <div className="Menu_Icon lg:hidden">
+          <TiThMenu className="text-3xl cursor-pointer" />
+        </div>
       </div>
     </div>
   );
