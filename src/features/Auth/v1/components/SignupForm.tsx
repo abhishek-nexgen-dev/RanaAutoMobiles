@@ -43,7 +43,7 @@ export function SignUpForm() {
             <strong>Phone:</strong> +91 9801956844 , 6203083782
           </p>
           <p>
-            <strong>Email:</strong> support@surajautomobiles.com
+            <strong>Email:</strong> skrana24681012@gmail.com
           </p>
           <p>
             <strong>Working Hours:</strong> Mon - Sat: 9:00 AM - 6:00 PM

@@ -46,7 +46,7 @@ export function LoginForm() {
           </p>
           <p>
             <strong className="mr-[0.5vw]"> Email:- </strong>{' '}
-            support@surajautomobiles.com
+            skrana24681012@gmail.com
           </p>
           <p>
             <strong className="mr-[0.5vw]">Working Hours:- </strong> Mon - Sat:
