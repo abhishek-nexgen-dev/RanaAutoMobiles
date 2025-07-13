@@ -7,15 +7,16 @@ import { NAV_LINKS } from './nav.constant';
 import { Button } from '@/components/ui/button';
 
 const NavBar = () => {
-  const [isLogin, setIsLogin] = React.useState(true);
+  const [isLogin, setIsLogin] = React.useState(false);
 
   const token = localStorage.getItem('token');
+  console.log('Token:', token);
 
   useEffect(() => {
-    if (!token) {
-      setIsLogin(false);
+    if (token) {
+      setIsLogin(true);
     }
-    setIsLogin(true);
+    setIsLogin(false);
   }, [token]);
 
   return (
