@@ -137,7 +137,8 @@ const ProductPage = () => {
                 </p>
                 <span className="bg-green-600 text-sm px-2 py-1 rounded font-medium">
                   {Math.round(
-                    ((product.price - product.discountPrice) / product.price) * 100
+                    ((product.price - product.discountPrice) / product.price) *
+                      100
                   )}
                   % OFF
                 </span>

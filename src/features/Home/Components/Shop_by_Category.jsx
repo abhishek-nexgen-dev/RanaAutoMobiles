@@ -10,8 +10,6 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 
-
-
 export const Shop_by_Category = () => {
   return (
     <div className="Shop_By_Category w-screen bg-black flex flex-col">
