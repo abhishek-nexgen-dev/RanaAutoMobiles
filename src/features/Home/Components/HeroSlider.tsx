@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,7 +9,7 @@ const HeroSlider = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const videoContainerRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
+  useEffect(() => {
     if (!titleRef.current || !videoRef.current || !videoContainerRef.current)
       return;
 
@@ -30,23 +29,23 @@ const HeroSlider = () => {
         start: 'top 110%',
         end: 'bottom 0%',
         scrub: true,
-        // markers: true,
       },
     });
   }, []);
 
   return (
-    <div className="bg-black text-white  relative">
+    <div className="bg-black text-white relative">
+      {/* Title Section */}
       <div
         ref={titleRef}
         className="Title_Container py-[13vh] md:py-0 md:h-[60vh] w-full flex flex-col items-center justify-end opacity-0 gap-2"
       >
         <div className="w-[95%] md:w-1/2">
-          <h1 className="text-[4vw]  md:text-[2.5vw] font-extrabold text-center text-green-400 dancing-script">
+          <h1 className="text-[4vw] md:text-[2.5vw] font-extrabold text-center text-green-400 dancing-script">
             All Bike &amp; Scooty Parts in One Place – Fast, Genuine &amp;
             Affordable
           </h1>
-          <p className="text-center text-[#d1d5db] text-[1.8vw]mt-4 lg:text-[1.5vw] parastoo">
+          <p className="text-center text-[#d1d5db] text-[1.8vw] mt-4 lg:text-[1.5vw] parastoo">
             Welcome to Rana Auto Mobiles – your trusted shop for all bike and
             scooty spare parts. We sell original parts at wholesale prices,
             provide quick and expert servicing, and help you keep your
@@ -58,17 +57,19 @@ const HeroSlider = () => {
         </div>
       </div>
 
+      {/* Video Section */}
       <div
         ref={videoContainerRef}
-        className="Video_Container w-full  py-[5vh] md:py-0  md:h-screen flex items-center justify-center relative "
+        className="Video_Container w-full py-[5vh] md:py-0 md:h-screen flex items-center justify-center relative"
       >
         <video
           ref={videoRef}
-          src="/Video/HeroVideo.mp4"
+          src="/Video/HeroVideo.mp4" // Ensure this path is correct
           autoPlay
           loop
           muted
-          className="Hero_Video w-[20%] h-full bg-contain"
+          playsInline
+          className="Hero_Video w-full h-auto max-h-[80vh] object-cover rounded-lg"
         />
       </div>
     </div>

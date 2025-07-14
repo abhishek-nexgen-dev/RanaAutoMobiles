@@ -53,7 +53,7 @@ const flagColorMap: Record<FlagType, string> = {
   error: 'bg-red-600',
 };
 
-const ProductPage = () => {
+const Page = () => {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [mainImage, setMainImage] = useState(selectedColor.images[0]);
 
@@ -227,4 +227,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default Page;

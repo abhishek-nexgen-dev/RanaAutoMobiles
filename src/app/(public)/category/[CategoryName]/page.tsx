@@ -1,6 +1,7 @@
 'use client';
 
 import { useParams } from 'next/navigation';
+import Image from 'next/image'
 
 const Page = () => {
   const params = useParams<{ CategoryName: string }>();
@@ -76,7 +77,7 @@ const Page = () => {
             className="bg-[#1a1a1a] rounded-lg shadow-lg p-4 flex flex-col"
           >
             <div className="Image_Container w-full h-48 bg-white">
-              <img
+              <Image
                 src={product.image}
                 alt={product.name}
                 className="w-full h-full object-contain rounded-md mb-4"

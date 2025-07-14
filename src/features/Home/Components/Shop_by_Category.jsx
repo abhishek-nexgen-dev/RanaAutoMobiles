@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { categories_Constant } from '../constant/Shop_by_Category.constant';
 
 export const Shop_by_Category = () => {
   return (
@@ -35,7 +36,7 @@ export const Shop_by_Category = () => {
       <div className="w-full flex items-center justify-center">
         <div className="Caregory_CardContainer w-[90%] h-full rounded-2xl  shadow-[#08ee7b]/30 p-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categories.map((category) => (
+            {categories_Constant.map((category) => (
               <Link key={category.id} href={`/category/${category.title}`}>
                 <Card className="Category_Card bg-[#2A2A2A] rounded-lg p-4 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">
                   <CardHeader className="p-0 bg-white rounded-lg">
