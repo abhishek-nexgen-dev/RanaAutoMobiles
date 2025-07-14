@@ -9,7 +9,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { categories } from '../constant/Shop_by_Category.constant';
+
+
 
 export const Shop_by_Category = () => {
   return (

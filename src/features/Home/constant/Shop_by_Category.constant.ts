@@ -1,4 +1,4 @@
-export const categories = [
+export const categories_Constant = [
   {
     id: '1',
     title: 'Electricals',
