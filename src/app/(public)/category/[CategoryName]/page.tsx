@@ -1,7 +1,7 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import Image from 'next/image'
+import Image from 'next/image';
 
 const Page = () => {
   const params = useParams<{ CategoryName: string }>();
