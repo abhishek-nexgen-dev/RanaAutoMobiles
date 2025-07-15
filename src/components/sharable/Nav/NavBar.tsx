@@ -1,5 +1,7 @@
-'use client';
+"use client";
+
 import React, { useEffect } from 'react';
+
 import { FaShoppingCart, FaUser, FaSearch } from 'react-icons/fa';
 import { TiThMenu } from 'react-icons/ti';
 import Link from 'next/link';
@@ -9,7 +11,7 @@ import { Button } from '@/components/ui/button';
 const NavBar = () => {
   const [isLogin, setIsLogin] = React.useState(false);
 
-  const token = localStorage.getItem('token');
+   const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
   console.log('Token:', token);
 
   useEffect(() => {

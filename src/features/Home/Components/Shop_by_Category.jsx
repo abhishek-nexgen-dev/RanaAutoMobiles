@@ -37,31 +37,45 @@ export const Shop_by_Category = () => {
         <div className="Caregory_CardContainer w-[90%] h-full rounded-2xl  shadow-[#08ee7b]/30 p-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories_Constant.map((category) => (
-              <Link key={category.id} href={`/category/${category.title}`}>
-                <Card className="Category_Card bg-[#2A2A2A] rounded-lg p-4 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">
-                  <CardHeader className="p-0 bg-white rounded-lg">
-                    <img
-                      src={category.imageUrl}
-                      alt={category.title}
-                      className="w-full h-[35vh] object-contain "
-                    />
-                  </CardHeader>
-                  <CardContent>
-                    <CardTitle className="text-[#08ee7b] text-xl font-bold">
-                      {category.title}
-                    </CardTitle>
-                    <CardDescription className="text-gray-400 text-sm">
-                      {category.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </Link>
+              <div
+                key={category.id}
+                className="Category_Card bg-[#2A2A2A] rounded-lg p-4 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+              >
+                <div className="CardHeader p-0 bg-white rounded-lg overflow-hidden">
+                  <img
+                    src={category.imageUrl}
+                    alt={category.title}
+                    className="w-full h-[35vh] object-cover"
+                  />
+                </div>
+                <div className="CardContent mt-4">
+                  <h2 className="text-[#08ee7b] text-xl font-bold">
+                    {category.title}
+                  </h2>
+                  <p className="text-gray-400 text-sm mb-2">
+                    {category.description}
+                  </p>
+                  <p className="text-gray-400 text-sm mb-4">
+                    <span className="font-semibold text-white">Products:</span>{' '}
+                    {category.productCount}
+                  </p>
+                  <div className="flex gap-4">
+                    <Link href={`/category/${category.title}`}>
+                      <button className="px-4 py-2 bg-[#08ee7b] text-black font-bold rounded-lg hover:bg-[#06c96b] transition-all">
+                        View Products
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
           <div className="flex justify-center mt-6">
-            <button className="px-6 py-2 bg-[#08ee7b] text-black font-bold rounded-lg hover:bg-[#06c96b] transition-all mt-[6vh]">
-              View More
-            </button>
+            <Link href={`/category`}>
+              <button className="px-6 py-2 bg-[#08ee7b] text-black font-bold rounded-lg hover:bg-[#06c96b] transition-all mt-[6vh]">
+                View More
+              </button>
+            </Link>
           </div>
         </div>
       </div>
