@@ -7,7 +7,7 @@ import Link from 'next/link';
 const Page = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
-// setup cors in backend
+  // setup cors in backend
   // Fetch categories from the API
   const fetchCategory = async () => {
     try {
@@ -15,7 +15,10 @@ const Page = () => {
         `${process.env.NEXT_PUBLIC_BASE_URL}/v1/findAllCategories`
       );
 
-      console.log('API URL:', `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/findAllCategories`);
+      console.log(
+        'API URL:',
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/findAllCategories`
+      );
       console.log('Categories:', res.data);
 
       // Assuming the API returns categories in `res.data.categories`
@@ -34,7 +37,9 @@ const Page = () => {
   if (loading) {
     return (
       <div className="w-full min-h-screen bg-black text-white flex items-center justify-center">
-        <p className="text-lg font-bold text-[#08ee7b]">Loading categories...</p>
+        <p className="text-lg font-bold text-[#08ee7b]">
+          Loading categories...
+        </p>
       </div>
     );
   }

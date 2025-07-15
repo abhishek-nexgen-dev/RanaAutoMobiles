@@ -87,10 +87,10 @@ const Page = () => {
                     flag.type === 'info'
                       ? 'bg-blue-600'
                       : flag.type === 'success'
-                      ? 'bg-green-600'
-                      : flag.type === 'warning'
-                      ? 'bg-yellow-600'
-                      : 'bg-gray-600'
+                        ? 'bg-green-600'
+                        : flag.type === 'warning'
+                          ? 'bg-yellow-600'
+                          : 'bg-gray-600'
                   }`}
                 >
                   <span>{flag.icon}</span>
@@ -134,9 +134,7 @@ const Page = () => {
             </p>
 
             {/* View Product Button */}
-            <button
-              className="w-full py-2 rounded-md font-bold bg-[#08ee7b] text-black hover:bg-[#06c96b] transition-all"
-            >
+            <button className="w-full py-2 rounded-md font-bold bg-[#08ee7b] text-black hover:bg-[#06c96b] transition-all">
               View Product
             </button>
           </div>
