@@ -66,43 +66,37 @@ const Page = () => {
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category) => (
-          <Link href={`/category/${category.title}`}  key={category.id}>
-            <div
-             
-              className="Category_Card bg-[#2A2A2A] rounded-lg p-4 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 hover:cursor-pointer"
-            >
-              <div className="CardHeader p-0 bg-white rounded-lg overflow-hidden">
-                <Image
-                loader={customLoader}
-                  src={category.imageUrl}
-                  alt={category.title}
-                  className="w-full h-[35vh] object-cover"
-                />
-              </div>
-              <div className="CardContent mt-4">
-                <h2 className="text-[#08ee7b] text-xl font-bold">
-                  {category.title}
-                </h2>
-                <p className="text-gray-400 text-sm mb-2">
-                  {category.description}
-                </p>
-                <p className="text-gray-400 text-sm mb-4">
-                  <span className="font-semibold text-white">Products:</span>{' '}
-                  {category.productCount}
-                </p>
-                <div className="flex gap-4">
-                 
+            <Link href={`/category/${category.title}`} key={category.id}>
+              <div className="Category_Card bg-[#2A2A2A] rounded-lg p-4 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 hover:cursor-pointer">
+                <div className="CardHeader p-0 bg-white rounded-lg overflow-hidden">
+                  <Image
+                    loader={customLoader}
+                    src={category.imageUrl}
+                    alt={category.title}
+                    className="w-full h-[35vh] object-cover"
+                  />
+                </div>
+                <div className="CardContent mt-4">
+                  <h2 className="text-[#08ee7b] text-xl font-bold">
+                    {category.title}
+                  </h2>
+                  <p className="text-gray-400 text-sm mb-2">
+                    {category.description}
+                  </p>
+                  <p className="text-gray-400 text-sm mb-4">
+                    <span className="font-semibold text-white">Products:</span>{' '}
+                    {category.productCount}
+                  </p>
+                  <div className="flex gap-4">
                     <button className="px-4 py-2 bg-[#08ee7b] text-black font-bold rounded-lg hover:bg-[#06c96b] transition-all hover:cursor-pointer">
                       View Products
                     </button>
-             
+                  </div>
                 </div>
               </div>
-            </div>
-           </Link>
+            </Link>
           ))}
         </div>
-        
       </div>
     </div>
   );

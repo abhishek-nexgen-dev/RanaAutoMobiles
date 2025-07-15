@@ -88,8 +88,8 @@ const Page = () => {
                     flag.type === 'info'
                       ? 'bg-blue-600'
                       : flag.type === 'success'
-                      ? 'bg-green-600'
-                      : 'bg-yellow-600'
+                        ? 'bg-green-600'
+                        : 'bg-yellow-600'
                   }`}
                 >
                   <span>{flag.icon}</span>

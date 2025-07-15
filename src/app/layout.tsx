@@ -3,7 +3,7 @@
 export const dynamic = 'force-dynamic';
 export const fetchCache = 'force-no-store';
 
-import { usePathname} from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import './globals.css';
 import React, { useEffect, useLayoutEffect, useRef, Suspense } from 'react';
 import Lenis from '@studio-freight/lenis';
@@ -15,7 +15,6 @@ export default function RootLayout({
 }) {
   const lenis = useRef<Lenis | null>(null);
   const pathname = usePathname();
-
 
   // Scroll to the top on route change
   useEffect(() => {

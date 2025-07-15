@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useEffect } from 'react';
 
@@ -11,7 +11,8 @@ import { Button } from '@/components/ui/button';
 const NavBar = () => {
   const [isLogin, setIsLogin] = React.useState(false);
 
-   const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+  const token =
+    typeof window !== 'undefined' ? localStorage.getItem('token') : null;
   console.log('Token:', token);
 
   useEffect(() => {
