@@ -2,8 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['rukminim2.flixcart.com'], // Add the external hostname here
+    loader: 'custom', // Use a custom loader
+    domains: [], // Leave domains empty
   },
 };
 
 module.exports = nextConfig;
+

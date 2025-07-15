@@ -2,10 +2,13 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { customLoader } from '@/utils/customLoader';
 
 // Mocked product data (replace this with your backend API call)
 const product = {
   name: 'Redmi Note 12 Pro',
+  modelNumber: 'RN12P-2023',
+  sap: '85%', // Stock Availability Percentage
   description:
     'Feature-rich smartphone with AMOLED display and 5000mAh battery.',
   price: 12999,
@@ -62,45 +65,58 @@ const Page = () => {
   }, [selectedColor]);
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-black px-4 py-8">
-      <div className="w-full max-w-7xl bg-[#1a1a1a] rounded-lg shadow-2xl flex flex-col lg:flex-row overflow-hidden">
+    <div className="min-h-screen w-screen flex items-center justify-center bg-black px-4 py-8">
+      <div className="w-full max-w-[85%] bg-[#1a1a1a] rounded-lg shadow-2xl flex flex-col lg:flex-row overflow-hidden">
         {/* Left: Image Section */}
-        <div className="w-full lg:w-[40%] bg-[#242424] p-4 flex flex-col gap-4">
+        <div className="w-full lg:w-[40%] bg-[#242424] p-6 flex flex-col gap-4">
           <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2">
             {selectedColor.images.map((img, index) => (
               <div
                 key={index}
-                className={`min-w-[80px] h-[80px] bg-white flex items-center justify-center p-2 rounded-md cursor-pointer ${
+                className={`min-w-[100px] h-[100px] bg-white flex items-center justify-center p-2 rounded-md cursor-pointer ${
                   mainImage === img ? 'ring-2 ring-[#08ee7b]' : ''
                 }`}
                 onClick={() => setMainImage(img)}
               >
                 <Image
+                  loader={customLoader}
                   src={img}
                   alt={`Thumbnail ${index + 1}`}
-                  width={80}
-                  height={80}
+                  width={100}
+                  height={100}
                   className="w-full h-full object-contain rounded"
                 />
               </div>
             ))}
           </div>
 
-          <div className="w-full h-[400px] bg-white flex items-center justify-center p-4 rounded-lg">
+          <div className="w-full h-[500px] bg-white flex items-center justify-center p-4 rounded-lg">
             <Image
               src={mainImage}
+              loader={customLoader}
               alt="Selected Product"
-              width={400}
-              height={400}
+              width={500}
+              height={500}
               className="w-full h-full object-contain rounded"
             />
           </div>
         </div>
 
         {/* Right: Product Details */}
-        <div className="w-full lg:w-[60%] p-6 text-white flex flex-col gap-6">
+        <div className="w-full lg:w-[60%] p-8 text-white flex flex-col gap-6">
           {/* Title */}
-          <h1 className="text-3xl font-bold text-[#08ee7b]">{product.name}</h1>
+          <h1 className="text-4xl font-bold text-[#08ee7b]">{product.name}</h1>
+
+          {/* Model Number */}
+          <p className="text-lg text-gray-400">
+            <span className="font-semibold text-white">Model Number:</span>{' '}
+            {product.modelNumber}
+          </p>
+
+          {/* SAP */}
+          <p className="text-lg text-gray-400">
+            <span className="font-semibold text-white">SAP:</span> {product.sap}
+          </p>
 
           {/* Flags */}
           {product.flags?.length > 0 && (
@@ -127,7 +143,7 @@ const Page = () => {
 
           {/* Price */}
           <div className="flex items-center gap-4">
-            <p className="text-2xl font-semibold text-white">
+            <p className="text-3xl font-semibold text-white">
               ₹{product.discountPrice || product.price}
             </p>
             {product.discountPrice && (
