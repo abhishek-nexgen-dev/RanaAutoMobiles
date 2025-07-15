@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 const HeroSlider = () => {
@@ -63,9 +62,6 @@ const HeroSlider = () => {
         ref={videoContainerRef}
         className="Video_Container w-full py-[5vh] md:py-0 md:h-screen flex items-center justify-center relative"
       >
-        
-       
-
         <video
           ref={videoRef}
           src="public/Video/HeroVideo.mp4" // Ensure this path is correct
