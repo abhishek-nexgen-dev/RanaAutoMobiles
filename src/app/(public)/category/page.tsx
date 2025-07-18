@@ -1,6 +1,6 @@
 'use client';
 
-import React, { memo, Suspense, useEffect} from 'react';
+import React, { memo, Suspense, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { customLoader } from '@/utils/customLoader';
@@ -31,7 +31,9 @@ const Page = () => {
       }
     } catch (error) {
       console.error('Error fetching categories:', error);
-      setError(error instanceof Error ? error.message : 'An unexpected error occurred');
+      setError(
+        error instanceof Error ? error.message : 'An unexpected error occurred'
+      );
     }
   };
 
