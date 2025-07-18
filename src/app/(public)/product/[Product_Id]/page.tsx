@@ -3,6 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { customLoader } from '@/utils/customLoader';
+import { useSelector } from 'react-redux';
+import { Add_To_Cart } from '@/features/product/Product.service';
+import { ToastContainer } from 'react-toastify';
+import { RootState } from '@/stores/store';
 
 // Mocked product data (replace this with your backend API call)
 const product = {
@@ -59,6 +63,8 @@ const flagColorMap: Record<FlagType, string> = {
 const Page = () => {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [mainImage, setMainImage] = useState(selectedColor.images[0]);
+
+  const user = useSelector((state: RootState) => state.authSlice.user);
 
   useEffect(() => {
     setMainImage(selectedColor.images[0]);
@@ -213,9 +219,13 @@ const Page = () => {
 
           {/* Buttons */}
           <div className="flex gap-4 mt-4">
-            <button className="flex-1 bg-[#08ee7b] text-black font-bold py-3 rounded-md hover:bg-[#06c96b] transition-all">
+            <button
+              onClick={() => Add_To_Cart(user)} // Pass the function as a callback
+              className="flex-1 bg-[#08ee7b] text-black font-bold py-3 rounded-md hover:bg-[#06c96b] transition-all"
+            >
               Add to Cart
             </button>
+            <ToastContainer />
             <button
               className="w-12 h-12 flex items-center justify-center border border-gray-600 rounded-md hover:bg-gray-800 transition-all"
               aria-label="Add to Wishlist"

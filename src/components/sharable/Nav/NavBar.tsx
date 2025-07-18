@@ -7,20 +7,21 @@ import { TiThMenu } from 'react-icons/ti';
 import Link from 'next/link';
 import { NAV_LINKS } from './nav.constant';
 import { Button } from '@/components/ui/button';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/stores/store';
 
 const NavBar = () => {
   const [isLogin, setIsLogin] = React.useState(false);
 
-  const token =
-    typeof window !== 'undefined' ? localStorage.getItem('token') : null;
-  console.log('Token:', token);
+  const user = useSelector((state: RootState) => state.authSlice.user);
 
   useEffect(() => {
-    if (token) {
+    if (user) {
       setIsLogin(true);
+    } else {
+      setIsLogin(false);
     }
-    setIsLogin(false);
-  }, [token]);
+  }, [user]);
 
   return (
     <div className="Navbar_Component fixed  w-screen flex items-center justify-between top-0 bg-black text-white lg:h-[12vh] z-[200] lg:relative px-6 lg:px-12 py-4 shadow-md border-b border-gray-800">

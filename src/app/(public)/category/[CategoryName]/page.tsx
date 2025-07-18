@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import { customLoader } from '@/utils/customLoader';
 import Link from 'next/link';
+import { Suspense } from 'react';
 
 const Page = () => {
   const params = useParams<{ CategoryName: string }>();
@@ -46,102 +47,104 @@ const Page = () => {
   ];
 
   return (
-    <div className="w-full min-h-screen bg-black text-white p-8">
-      <h1 className="text-[3vw] font-bold text-[#08ee7b] mb-6 w-full text-left p-[2.5vw]">
-        {categoryName.replaceAll('%20', ' ')}
-      </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-[5vh]">
-        {products.map((product) => (
-          <div
-            key={product.id}
-            className="bg-[#1a1a1a] rounded-lg shadow-lg p-4 flex flex-col hover:shadow-xl hover:scale-105 transition-all duration-300"
-          >
-            {/* Product Image */}
-            <div className="Image_Container w-full h-48 bg-white rounded-lg overflow-hidden mb-4">
-              <Image
-                loader={customLoader}
-                src={product.image}
-                alt={product.name}
-                width={200}
-                height={200}
-                className="w-full h-full object-contain"
-              />
-            </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className="w-full min-h-screen bg-black text-white p-8">
+        <h1 className="text-[3vw] font-bold text-[#08ee7b] mb-6 w-full text-left p-[2.5vw]">
+          {categoryName.replaceAll('%20', ' ')}
+        </h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-[5vh]">
+          {products.map((product) => (
+            <div
+              key={product.id}
+              className="bg-[#1a1a1a] rounded-lg shadow-lg p-4 flex flex-col hover:shadow-xl hover:scale-105 transition-all duration-300"
+            >
+              {/* Product Image */}
+              <div className="Image_Container w-full h-48 bg-white rounded-lg overflow-hidden mb-4">
+                <Image
+                  loader={customLoader}
+                  src={product.image}
+                  alt={product.name}
+                  width={200}
+                  height={200}
+                  className="w-full h-full object-contain"
+                />
+              </div>
 
-            {/* Product Name */}
-            <h2 className="text-xl font-bold text-[#08ee7b] mb-2">
-              {product.name}
-            </h2>
+              {/* Product Name */}
+              <h2 className="text-xl font-bold text-[#08ee7b] mb-2">
+                {product.name}
+              </h2>
 
-            {/* Model Number */}
-            <p className="text-gray-400 text-sm mb-2">
-              <span className="font-semibold text-white">Model:</span>{' '}
-              {product.modelNumber}
-            </p>
-
-            {/* Flags */}
-            <div className="flex flex-wrap gap-2 mb-2">
-              {product.flags.map((flag, idx) => (
-                <span
-                  key={idx}
-                  className={`text-sm px-2 py-1 rounded-full text-white flex items-center gap-1 ${
-                    flag.type === 'info'
-                      ? 'bg-blue-600'
-                      : flag.type === 'success'
-                        ? 'bg-green-600'
-                        : 'bg-yellow-600'
-                  }`}
-                >
-                  <span>{flag.icon}</span>
-                  <span>{flag.label}</span>
-                </span>
-              ))}
-            </div>
-
-            {/* Rating */}
-            <div className="flex items-center mb-2">
-              <span className="text-yellow-400 text-sm">
-                {'★'.repeat(Math.floor(product.rating))}
-                {'☆'.repeat(5 - Math.floor(product.rating))}
-              </span>
-              <span className="text-gray-400 text-sm ml-2">
-                ({product.rating.toFixed(1)})
-              </span>
-            </div>
-
-            {/* Price */}
-            <div className="flex items-center gap-4 mb-4">
-              <p className="text-lg font-bold text-white">
-                {product.currency}
-                {product.discountPrice || product.price}
+              {/* Model Number */}
+              <p className="text-gray-400 text-sm mb-2">
+                <span className="font-semibold text-white">Model:</span>{' '}
+                {product.modelNumber}
               </p>
-              {product.discountPrice && (
-                <p className="line-through text-gray-500 text-sm">
+
+              {/* Flags */}
+              <div className="flex flex-wrap gap-2 mb-2">
+                {product.flags.map((flag, idx) => (
+                  <span
+                    key={idx}
+                    className={`text-sm px-2 py-1 rounded-full text-white flex items-center gap-1 ${
+                      flag.type === 'info'
+                        ? 'bg-blue-600'
+                        : flag.type === 'success'
+                          ? 'bg-green-600'
+                          : 'bg-yellow-600'
+                    }`}
+                  >
+                    <span>{flag.icon}</span>
+                    <span>{flag.label}</span>
+                  </span>
+                ))}
+              </div>
+
+              {/* Rating */}
+              <div className="flex items-center mb-2">
+                <span className="text-yellow-400 text-sm">
+                  {'★'.repeat(Math.floor(product.rating))}
+                  {'☆'.repeat(5 - Math.floor(product.rating))}
+                </span>
+                <span className="text-gray-400 text-sm ml-2">
+                  ({product.rating.toFixed(1)})
+                </span>
+              </div>
+
+              {/* Price */}
+              <div className="flex items-center gap-4 mb-4">
+                <p className="text-lg font-bold text-white">
                   {product.currency}
-                  {product.price}
+                  {product.discountPrice || product.price}
                 </p>
-              )}
+                {product.discountPrice && (
+                  <p className="line-through text-gray-500 text-sm">
+                    {product.currency}
+                    {product.price}
+                  </p>
+                )}
+              </div>
+
+              {/* Stock Status */}
+              <p className="text-gray-400 text-sm mb-4">
+                {product.inStock ? (
+                  <span className="text-green-500">In Stock</span>
+                ) : (
+                  <span className="text-red-500">Out of Stock</span>
+                )}
+              </p>
+
+              {/* View Product Button */}
+              <Link href={`/product/${product.modelNumber}`}>
+                <button className="w-full py-2 rounded-md font-bold bg-[#08ee7b] text-black hover:bg-[#06c96b] transition-all">
+                  View Product
+                </button>
+              </Link>
             </div>
-
-            {/* Stock Status */}
-            <p className="text-gray-400 text-sm mb-4">
-              {product.inStock ? (
-                <span className="text-green-500">In Stock</span>
-              ) : (
-                <span className="text-red-500">Out of Stock</span>
-              )}
-            </p>
-
-            {/* View Product Button */}
-            <Link href={`/product/${product.modelNumber}`}>
-              <button className="w-full py-2 rounded-md font-bold bg-[#08ee7b] text-black hover:bg-[#06c96b] transition-all">
-                View Product
-              </button>
-            </Link>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </Suspense>
   );
 };
 

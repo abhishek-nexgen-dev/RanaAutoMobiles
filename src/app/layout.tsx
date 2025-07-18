@@ -1,12 +1,13 @@
 'use client';
-
 export const dynamic = 'force-dynamic';
 export const fetchCache = 'force-no-store';
 
 import { usePathname } from 'next/navigation';
 import './globals.css';
+import { Provider } from 'react-redux';
 import React, { useEffect, useLayoutEffect, useRef, Suspense } from 'react';
 import Lenis from '@studio-freight/lenis';
+import { store } from '@/stores/store';
 
 export default function RootLayout({
   children,
@@ -47,7 +48,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Suspense fallback={<p>Loading...</p>}>
-          <div className="w-screen flex flex-col h-fit">{children}</div>
+          <Provider store={store}>
+            <div className="w-screen flex flex-col h-fit">{children}</div>
+          </Provider>
         </Suspense>
       </body>
     </html>

@@ -3,12 +3,18 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Link from 'next/link';
+import { useDispatch } from 'react-redux';
+import { toast, ToastContainer } from 'react-toastify';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { LoginFormInputs } from '../type/Login.type';
 import { LoginSchema } from '../validator/Auth.validator';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { api } from '@/utils/api';
+import { login } from '../Auth.Slice';
 
 export function LoginForm() {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -18,10 +24,62 @@ export function LoginForm() {
     resolver: joiResolver(LoginSchema),
   });
 
-  const onSubmit: SubmitHandler<LoginFormInputs> = (data) => {
-    alert('Login Successful');
-    console.log(data);
-    reset();
+  const onSubmit: SubmitHandler<LoginFormInputs> = async (data) => {
+    try {
+      const res = await api.post('/api/v1/auth/login', {
+        email: data.Email,
+        password: data.Password,
+      });
+
+      const user = res.data.data.user;
+      console.log('user', user);
+
+      if (res.data.success) {
+        dispatch(
+          login({
+            email: user.email,
+            name: user.name,
+            role: user.role,
+            _id: user._id,
+          })
+        );
+
+        toast.success(res.data.message, {
+          position: 'top-right',
+          style: {
+            marginTop: '10vh',
+          },
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        });
+      }
+
+      console.log(res.data.data);
+    } catch (error) {
+      reset();
+
+      toast.error(
+        error instanceof Error ? error.message : 'An unexpected error occurred',
+        {
+          position: 'top-right',
+          style: {
+            marginTop: '10vh',
+          },
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        }
+      );
+    }
   };
 
   return (
@@ -117,6 +175,8 @@ export function LoginForm() {
             >
               Login
             </Button>
+
+            <ToastContainer />
           </form>
 
           <p className="text-gray-400 text-sm mt-6 text-center">

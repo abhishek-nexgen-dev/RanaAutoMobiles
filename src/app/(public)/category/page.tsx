@@ -1,15 +1,16 @@
 'use client';
 
-import React, { Suspense, useEffect } from 'react';
+import React, { memo, Suspense, useEffect} from 'react';
 import Link from 'next/link';
-
 import Image from 'next/image';
 import { customLoader } from '@/utils/customLoader';
 import { api } from '@/utils/api';
 import { Category_Type } from '@/features/category/category.type';
+import Loader_Primary from '@/components/sharable/Loader/Loader_Primary';
 
 const Page = () => {
   const [categories, setCategories] = React.useState([]);
+  const [error, setError] = React.useState<string | null>(null);
   // Dummy category data
 
   const Fetch_Category = async () => {
@@ -21,11 +22,16 @@ const Page = () => {
 
       const data = res.data.data;
 
+      if (!data || data.length === 0) {
+        throw new Error('No categories found');
+      }
+
       if (res.data.success) {
         setCategories(data);
       }
     } catch (error) {
       console.error('Error fetching categories:', error);
+      setError(error instanceof Error ? error.message : 'An unexpected error occurred');
     }
   };
 
@@ -34,7 +40,13 @@ const Page = () => {
   }, []);
 
   return (
-    <Suspense fallback={<div>Loading Category...</div>}>
+    <Suspense
+      fallback={
+        <div className="w-screen h-screen items-center justify-between bg-black text-green-700">
+          Loading Category Data...
+        </div>
+      }
+    >
       {categories.length > 0 && (
         <div className="w-full min-h-screen bg-black text-white flex items-center justify-center p-8">
           <div className="Caregory_CardContainer w-[90%] bg-amber-600 h-full rounded-2xl shadow-[#08ee7b]/30 p-6">
@@ -82,8 +94,15 @@ const Page = () => {
           </div>
         </div>
       )}
+
+      {categories.length === 0 && <Loader_Primary />}
+      {error && (
+        <div className="w-screen h-screen flex items-center justify-center bg-black text-red-500">
+          <p>Error: {error}</p>
+        </div>
+      )}
     </Suspense>
   );
 };
 
-export default Page;
+export default memo(Page);
