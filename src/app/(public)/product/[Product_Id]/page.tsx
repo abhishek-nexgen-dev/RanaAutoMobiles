@@ -222,7 +222,7 @@ const Page = () => {
             <button
               onClick={() =>
                 Add_To_Cart({
-                  user,
+                  user: user,
                 })
               } // Pass the function as a callback
               className="flex-1 bg-[#08ee7b] text-black font-bold py-3 rounded-md hover:bg-[#06c96b] transition-all"
